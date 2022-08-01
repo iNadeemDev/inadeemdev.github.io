@@ -46,3 +46,17 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
+
+// JS for showing popup message STARTS Here
+function getParameters(parameterName) {
+  let parameters = new URLSearchParams(window.location.search);
+  return parameters.get(parameterName)
+}
+if (getParameters('status') == 1) {
+  var element = document.getElementById('alertPopup');
+  element.style.display = "block";
+  setTimeout(function(){
+    element.style.display = "none";
+  },3000)
+}
+// JS for showing popup msg ENDS Here

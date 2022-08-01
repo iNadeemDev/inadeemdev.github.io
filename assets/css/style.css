@@ -1074,3 +1074,36 @@ textarea.contact-input {
 .skill-icon{
   font-size: var(--fs-3);
 }
+
+/* Message sent popup CSS */
+.alertMsg {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 17px;
+  background-color: MediumSeaGreen;
+  color: white;;
+  z-index: 99;
+
+
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+#alertPopup{
+  display: none;
+}
