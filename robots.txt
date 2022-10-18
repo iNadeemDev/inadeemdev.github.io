@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: 
+Disallow: wafy-assets/
 Sitemap: https://nadeemdev.com/sitemap.xml
