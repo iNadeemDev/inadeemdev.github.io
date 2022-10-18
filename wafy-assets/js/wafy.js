@@ -1,16 +1,3 @@
-// NOTES AT THE TOP
-// whole_body = document.body.innerHTML
-
-
-// Continue listening recognition.start() {onend function}?
-
-/**** write functions for addEventListener (accessibility features event listeners) outside the addEventListener body,
- so thet it may be available to be called from other ways. ****/
-
-
-//#############################################//
-
-
 // loading CSS files in HEAD
 var head = document.getElementsByTagName('HEAD')[0];
 // Create new link Element
