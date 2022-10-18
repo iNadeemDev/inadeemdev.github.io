@@ -182,7 +182,7 @@
 @font-face {
     font-family: 'OpenDyslexic';
     /*a name to be used later*/
-    src: url('OpenDyslexicAlta-Bold.otf');
+    src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff');
     /*URL to font*/
 }
 
