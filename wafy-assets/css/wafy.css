@@ -1,0 +1,538 @@
+/* Display speech results */
+#interim {
+    z-index: 999;
+    color: azure;
+    position: fixed;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: green;
+    font-size: 40px;
+    text-align: center;
+}
+
+.accessibility-widget-btn{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999998;
+}
+#container-accessibility-widget {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 33%;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 9999999;
+    overflow-y: scroll;
+    /* Box-shadow */
+    -webkit-box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    /* Hiding the scrollbar still being able to scroll */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+    opacity: 0;
+    pointer-events: none;
+}
+
+#container-accessibility-widget.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#container-accessibility-widget::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+
+#container-accessibility-heading {
+    background-color: salmon;
+    padding: 15px 8px 30px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#accessibility-widget-close {
+    font-size: 22px;
+    cursor: pointer;
+    /* setting transition for animation */
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    -ms-transition: -ms-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+}
+
+#accessibility-widget-close:hover {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+#container-accessibility-widget-menu {
+    border-radius: 15px 15px 0 0;
+    transform: translateY(-15px);
+    background-color: #EFF1F5;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 10px 10px 10px;
+}
+
+.accessibility-card {
+    width: 48%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 0 5px 0;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.accessibility-card:hover {
+    outline: 3px solid blue;
+    background-color: lightskyblue;
+}
+
+.accessibility-card.accessibilityActiveOption {
+    background-color: #00ff80;
+    outline: 3px solid green;
+}
+
+.accessibility-card p {
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.accessibility-card i {
+    font-size: 25px;
+}
+
+/* Text Size CSS */
+.accessibility-bigger-text span {
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+/* Text Align CSS */
+.accessibility-text-align span {
+    font-weight: bold;
+    margin: 3px;
+    padding: 6px;
+    outline: 2px solid #000;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* 1. Text Spacing CSS  2. Line Height  3. Cursor  */
+.accessibility-textSpacing span,
+.accessibility-lineHeight span,
+.accessibility-cursor span,
+.accessibility-contrast span,
+.accessibility-saturation span,
+.accessibility-brightness span {
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+/* changing to custom cursor */
+.accessibility-cursorImg1 {
+    cursor: url(../images/cursor-images/cur-black.png), auto !important;
+}
+
+.accessibility-cursorImg2 {
+    cursor: url(../images/cursor-images/cur-black-hand.png), auto !important;
+}
+
+.accessibility-cursorImg3 {
+    cursor: url(../images/cursor-images/cur-white.png), auto !important;
+}
+
+.accessibility-cursorImg4 {
+    cursor: url(../images/cursor-images/cur-white-hand.png), auto !important;
+}
+
+/* Highlight Links */
+.highlightLinks , .highlightSpeakingText{
+    color: #FFFF00 !important;
+    background-color: #000 !important;
+    text-decoration: underline !important;
+}
+
+/* Dyslexia friendly font CSS */
+@font-face {
+    font-family: 'OpenDyslexic';
+    /*a name to be used later*/
+    src: url('OpenDyslexicAlta-Bold.otf');
+    /*URL to font*/
+}
+
+.dyslexic-font {
+    font-family: "OpenDyslexic" !important;
+}
+
+/*********************************/
+
+
+/* Major Links CSS Starts */
+.major-links-wrapper {
+    display: none;
+    position: fixed;
+    z-index: 99000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.major-links-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E90FF;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.major-links-content {
+    background-color: #fefefe;
+    margin: auto;
+    top: 0;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 35%;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#major-links-close-icon {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    outline: 2x solid green;
+}
+
+#major-links-close-icon:hover,
+#major-links-close-icon:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show-major-links {
+    display: block;
+    text-align: center;
+    padding: 4px;
+    font-size: 20px;
+    background-color: yellow;
+    margin-bottom: 5px;
+}
+
+/* Major Links CSS Ends */
+
+
+/* Dictionary CSS */
+
+.dictionary-meaning-popup {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: mediumseagreen;
+    color: #fff;
+    padding: 10px;
+    z-index: 99999999;
+    border-radius: 5px;
+    border: 2px solid gray;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dictionaryShow {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dictionary-meaning-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#dictionary-meaning-close {
+    font-size: 18px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#dictWordSpeak {
+    border: 1px solid;
+    margin-left: 10px;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 8px;
+}
+
+#dictWordSpeak:hover {
+    background-color: rgb(142, 162, 243);
+    border: 1px solid #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Reading Mask Line CSS */
+#readingMaskLine {
+    position: fixed;
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 15px;
+    width: 80%;
+    z-index: 9999999;
+
+    background-image: linear-gradient(135deg, #EE617D 25%, #3D6F8E 25%, #3D6F8E 50%, #EE617D 50%, #EE617D 75%, #3D6F8E 75%, #3D6F8E 100%);
+    background-size: 12px 12px;
+}
+
+/* Pause Animations CSS */
+.pause-animations {
+    animation: none !important;
+}
+
+/* Showing active badge on active suboption for Text Sizing */
+/* Showing active badge on active suboption for Text Align */
+.sizingActiveSuboptionBadge,
+.alignActiveSuboptionBadge,
+.SpacingActiveSuboptionBadge,
+.lineHeightActiveSuboptionBadge,
+.ContrastActiveSuboptionBadge,
+.BrightnessActiveSuboptionBadge,
+.SaturationActiveSuboptionBadge,
+.cursorActiveSuboptionBadge {
+    color: green !important;
+    position: absolute !important;
+    transform: translate(-16px, -13px) !important;
+    background-color: #ffbf00 !important;
+    border-radius: 50% !important;
+    padding: 3px !important;
+    border: none !important;
+    line-height: normal !important;
+}
+/* Active Option CSS for BG and Text Color */
+.bgColorActiveSuboptionBadge,
+.textColorActiveSuboptionBadge {
+  color: green !important;
+  position: absolute !important;
+  transform: translate(-16px, -15px) !important;
+  background-color: #ffbf00 !important;
+  border-radius: 50% !important;
+  padding: 1px !important;
+  border: none !important;
+  line-height: normal !important;
+}
+
+
+/* Background Color CSS */
+.accessibility-bgColor span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: 1px solid black;
+  }
+  .accessibility-bgColor1 {
+    background-color: blue;
+  }
+  .accessibility-bgColor2 {
+    background-color: black;
+  }
+  .accessibility-bgColor3 {
+    background-color: purple;
+  }
+  .accessibility-bgColor4 {
+    background-color: red;
+  }
+  .accessibility-bgColor5 {
+    background-color: orange;
+  }
+  .accessibility-background-color1 {
+    background-color: blue !important;
+    color: #fff !important;
+  }
+  .accessibility-background-color2 {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  .accessibility-background-color3 {
+    background-color: purple !important;
+    color: #fff !important;
+  }
+  .accessibility-background-color4 {
+    background-color: red !important;
+    color: #fff !important;
+  }
+  .accessibility-background-color5 {
+    background-color: orange !important;
+    color: #fff !important;
+  }
+  /* Background Color CSS Ends Here */
+
+
+  /* Text Color CSS Starts Here */
+  .accessibility-textColor span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+  
+  .accessibility-textColor1 {
+    background-color: blue;
+  }
+  
+  .accessibility-textColor2 {
+    background-color: black;
+  }
+  
+  .accessibility-textColor3 {
+    background-color: purple;
+  }
+  
+  .accessibility-textColor4 {
+    background-color: red;
+  }
+  
+  .accessibility-textColor5 {
+    background-color: orange;
+  }
+  
+  .accessibility-text-color1 {
+    color: blue !important;
+  }
+  
+  .accessibility-text-color2 {
+    color: #000 !important;
+  }
+  
+  .accessibility-text-color3 {
+    color: purple !important;
+  }
+  
+  .accessibility-text-color4 {
+    color: red !important;
+  }
+  
+  .accessibility-text-color5 {
+    color: orange !important;
+  }
+  /* Text Color CSS Ends Here */
+
+
+@media screen and (max-width:1024px) {
+    #container-accessibility-widget {
+        width: 45%;
+    }
+
+    .dictionary-meaning-popup {
+        width: 35%;
+    }
+
+    .major-links-content{
+        width: 35%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    #container-accessibility-widget {
+        width: 72%;
+    }
+
+    .dictionary-meaning-popup {
+        width: 50%;
+    }
+
+    .major-links-content{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    #container-accessibility-widget {
+        width: 100%;
+    }
+
+    .dictionary-meaning-popup {
+        width: 98%;
+        left: 50%;
+        translate: -50% 0;
+    }
+
+    .major-links-content{
+        width: 100%;
+    }
+}
+
+/* CSS for Dark Mode */
+.accessibility-darkMode {
+    --primary: black;
+    --primary-1: white;
+    --secondary: white;
+    --primary-dark: black;
+    --primary-light: black;
+    --accent: #00d4d7;
+    --accent-dark: #00bac1;
+    --accent-light: #dff9f8;
+    --success: #13d527;
+    --success-dark: #00ae11;
+    --success-light: #eafbe7;
+    --secondary: #8f15d5;
+    --secondary-dark: #6013c7;
+    --secondary-light: #f4e5fa;
+    --info: #15b2d5;
+    --info-dark: #0f8ca8;
+    --info-light: #e0f5fa;
+    --caution: #dbbb25;
+    --caution-dark: #d58f15;
+    --caution-light: #fbf9e4;
+    --error: #e6185e;
+    --error-dark: #bf1257;
+    --error-light: #fce4eb;
+    --black-1: black;
+    --black: white;
+    --dark-1: white;
+    --dark-2: white;
+    --dark-3: #6d6d6d;
+    --gray-1: white;
+    --gray-2: white;
+    --gray-3: white;
+    --gray-4: white;
+    --light-1: #efefef;
+    --light-2: black;
+    --light-3: black;
+    --white: white;
+}
