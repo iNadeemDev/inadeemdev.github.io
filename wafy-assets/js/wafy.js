@@ -352,16 +352,23 @@ accessibility_textSize_card.addEventListener('click', () => {
 // *************** 4. Script for Dyslexia Friendly font
 const accessibility_dyslexia = document.getElementById('accessibility_card-dyslexia');
 accessibility_dyslexia.addEventListener('click', () => {
+    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,blockquote,div,strong,input,button,b,q,cite,em,td,th");
     if (accessibility_dyslexia.closest('.accessibilityActiveOption')) {
         // deactivating the dyslexia friendly font
         accessibility_dyslexia.closest('.accessibilityActiveOption').classList.remove('accessibilityActiveOption');
 
-        document.body.classList.remove('dyslexic-font');
+        // Applying Style
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("dyslexic-font");
+        }
     } else {
         // activating the dyslexia friendly font
         accessibility_dyslexia.closest('.accessibility-card').classList.add('accessibilityActiveOption');
 
-        document.body.classList.add('dyslexic-font');
+        // Applying Style
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("dyslexic-font");
+        }
     }
 });
 ///////////////////////////////////////////////////////
@@ -1671,15 +1678,14 @@ const accessibility_textColorSubOpt = document.getElementById(
     "accessibility-textColorSubOpt"
 );
 
-const pElements = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon,svg,div,strong,input,button,b,cite,em,td,th");
-
 accessibility_textColor.addEventListener("click", () => {
+    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon,svg,div,strong,input,button,b,cite,em,td,th");
     if (accessibility_textColor.matches(".textColor1")) {
         // remove class from Card
         accessibility_textColor.classList.remove("textColor1");
         // remove class from DOM
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.remove("accessibility-text-color1");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("accessibility-text-color1");
         }
         accessibility_textColor.classList.add("textColor2");
 
@@ -1696,15 +1702,15 @@ accessibility_textColor.addEventListener("click", () => {
         );
 
         // Applying Styles
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.add("accessibility-text-color2");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("accessibility-text-color2");
         }
     } else if (accessibility_textColor.matches(".textColor2")) {
         //remove class from Card
         accessibility_textColor.classList.remove("textColor2");
         // remove class from DOM
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.remove("accessibility-text-color2");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("accessibility-text-color2");
         }
         accessibility_textColor.classList.add("textColor3");
 
@@ -1721,15 +1727,15 @@ accessibility_textColor.addEventListener("click", () => {
         );
 
         // Applying Styles
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.add("accessibility-text-color3");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("accessibility-text-color3");
         }
     } else if (accessibility_textColor.matches(".textColor3")) {
         // remove the class from card
         accessibility_textColor.classList.remove("textColor3");
         // remove the class from DOM
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.remove("accessibility-text-color3");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("accessibility-text-color3");
         }
         accessibility_textColor.classList.add("textColor4");
 
@@ -1746,15 +1752,15 @@ accessibility_textColor.addEventListener("click", () => {
         );
 
         // Applying Styles
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.add("accessibility-text-color4");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("accessibility-text-color4");
         }
     } else if (accessibility_textColor.matches(".textColor4")) {
         // Remove class from Card
         accessibility_textColor.classList.remove("textColor4");
         // remove class from DOM
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.remove("accessibility-text-color4");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("accessibility-text-color4");
         }
         accessibility_textColor.classList.add("textColor5");
 
@@ -1771,15 +1777,15 @@ accessibility_textColor.addEventListener("click", () => {
         );
 
         // Applying Styles
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.add("accessibility-text-color5");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("accessibility-text-color5");
         }
     } else if (accessibility_textColor.matches(".textColor5")) {
         // remove class from Card
         accessibility_textColor.classList.remove("textColor5");
         // remove class from DOM
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.remove("accessibility-text-color5");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.remove("accessibility-text-color5");
         }
 
         // removing active subOption badge from TAJ
@@ -1814,8 +1820,8 @@ accessibility_textColor.addEventListener("click", () => {
         );
 
         // Applying Styles
-        for (let i = 0; i < pElements.length; i++) {
-            pElements[i].classList.add("accessibility-text-color1");
+        for (let i = 0; i < wafy_typographic_elems.length; i++) {
+            wafy_typographic_elems[i].classList.add("accessibility-text-color1");
         }
     }
 });
