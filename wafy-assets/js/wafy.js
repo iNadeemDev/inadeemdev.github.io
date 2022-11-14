@@ -263,7 +263,7 @@ document.addEventListener('mousemove', function (event) {
             y: event.clientY
 
         };
-        accessibility_open_w.style.top = (mousePosition.y + offsetReadingMask[0]) + 'px';
+        accessibility_open_w.style.top = (widget_mousePosition.y + offsetWidget[0]) + 'px';
     }
 }, true);
 // *************** 1. Script for SCREEN READER
