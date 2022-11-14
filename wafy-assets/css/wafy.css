@@ -321,6 +321,8 @@
 /* Pause Animations CSS */
 .pause-animations {
     animation: none !important;
+    animation-duration: 0s !important;
+    animation-play-state: paused !important;
 }
 
 /* Showing active badge on active suboption for Text Sizing */
