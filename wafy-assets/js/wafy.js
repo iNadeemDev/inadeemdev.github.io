@@ -352,7 +352,7 @@ accessibility_textSize_card.addEventListener('click', () => {
 // *************** 4. Script for Dyslexia Friendly font
 const accessibility_dyslexia = document.getElementById('accessibility_card-dyslexia');
 accessibility_dyslexia.addEventListener('click', () => {
-    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,blockquote,div,strong,input,button,b,q,cite,em,td,th");
+    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,blockquote,div,strong,input,textarea,button,b,q,cite,em,td,th");
     if (accessibility_dyslexia.closest('.accessibilityActiveOption')) {
         // deactivating the dyslexia friendly font
         accessibility_dyslexia.closest('.accessibilityActiveOption').classList.remove('accessibilityActiveOption');
@@ -1679,7 +1679,7 @@ const accessibility_textColorSubOpt = document.getElementById(
 );
 
 accessibility_textColor.addEventListener("click", () => {
-    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon,svg,div,strong,input,button,b,cite,em,td,th");
+    const wafy_typographic_elems = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon,svg,div,strong,input,textarea,button,b,cite,em,td,th");
     if (accessibility_textColor.matches(".textColor1")) {
         // remove class from Card
         accessibility_textColor.classList.remove("textColor1");
