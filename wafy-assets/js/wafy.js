@@ -239,7 +239,33 @@ accessibility_close_w.addEventListener('click', () => {
     accessibility_widget.classList.remove('show');
 });
 
+//////
 
+var widget_mousePosition;
+var offsetWidget = [0, 0];
+var isDownWidget = false;
+
+accessibility_open_w.addEventListener('mousedown', function (e) {
+    isDownWidget = true;
+    offsetWidget = [
+        accessibility_open_w.offsetWidgetTop - e.clientY
+    ];
+}, true);
+
+document.addEventListener('mouseup', function () {
+    isDownWidget = false;
+}, true);
+
+document.addEventListener('mousemove', function (event) {
+    event.preventDefault();
+    if (isDownWidget) {
+        widget_mousePosition = {
+            y: event.clientY
+
+        };
+        accessibility_open_w.style.top = (mousePosition.y + offsetReadingMask[0]) + 'px';
+    }
+}, true);
 // *************** 1. Script for SCREEN READER
 
 // Creating a new text-to-speech objech
@@ -982,28 +1008,28 @@ const accessibility_readingMask = document.getElementById('accessibility_card-re
 const readingMaskLine = document.getElementById('readingMaskLine');
 
 var mousePosition;
-var offset = [0, 0];
-var isDown = false;
+var offsetReadingMask = [0, 0];
+var isDownReadingMask = false;
 
 readingMaskLine.addEventListener('mousedown', function (e) {
-    isDown = true;
-    offset = [
-        readingMaskLine.offsetTop - e.clientY
+    isDownReadingMask = true;
+    offsetReadingMask = [
+        readingMaskLine.offsetReadingMaskTop - e.clientY
     ];
 }, true);
 
 document.addEventListener('mouseup', function () {
-    isDown = false;
+    isDownReadingMask = false;
 }, true);
 
 document.addEventListener('mousemove', function (event) {
     event.preventDefault();
-    if (isDown) {
+    if (isDownReadingMask) {
         mousePosition = {
             y: event.clientY
 
         };
-        readingMaskLine.style.top = (mousePosition.y + offset[0]) + 'px';
+        readingMaskLine.style.top = (mousePosition.y + offsetReadingMask[0]) + 'px';
     }
 }, true);
 
