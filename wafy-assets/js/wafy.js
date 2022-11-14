@@ -1671,7 +1671,7 @@ const accessibility_textColorSubOpt = document.getElementById(
     "accessibility-textColorSubOpt"
 );
 
-const pElements = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon");
+const pElements = document.querySelectorAll("p,h1,h2,h3,h4,h5,h6,span,a,li,i,icon,svg,div,strong,b,cite,em,td,th");
 
 accessibility_textColor.addEventListener("click", () => {
     if (accessibility_textColor.matches(".textColor1")) {
