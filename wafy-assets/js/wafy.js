@@ -1924,7 +1924,24 @@ function voice_navigation() {
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 command_final_transcript = event.results[i][0].transcript;
-                if (command_final_transcript.toLocaleLowerCase().includes("scroll up") || command_final_transcript.toLocaleLowerCase().includes("page up")) {
+                // Opening / Clicking links
+                if (command_final_transcript.toLocaleLowerCase().includes("go to")) {
+                    var anchors = document.getElementsByTagName("A");
+                    for(let i=0; i<anchors.length;i++){
+                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("go to ")){
+                            anchors[i].click();
+                            break;
+                        }
+                    }
+                } else if (command_final_transcript.toLocaleLowerCase().includes("open")) {
+                    var anchors = document.getElementsByTagName("A");
+                    for(let i=0; i<anchors.length;i++){
+                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("open ")){
+                            anchors[i].click();
+                            break;
+                        }
+                    }
+                } else if (command_final_transcript.toLocaleLowerCase().includes("scroll up") || command_final_transcript.toLocaleLowerCase().includes("page up")) {
                     window.scrollBy(0, 700);
                 } else if (command_final_transcript.toLocaleLowerCase().includes("scroll down") || command_final_transcript.toLocaleLowerCase().includes("page down")) {
                     window.scrollBy(0, -700);
@@ -1972,26 +1989,26 @@ function voice_navigation() {
                     element.click();
                 }
                 // form filling
-                else if (command_final_transcript.toLocaleLowerCase().includes("name") || command_final_transcript.toLocaleLowerCase().includes("click name")) {
-                    const element = document.getElementById("name");
-                    element.focus();
+                // else if (command_final_transcript.toLocaleLowerCase().includes("name") || command_final_transcript.toLocaleLowerCase().includes("click name")) {
+                //     const element = document.getElementById("name");
+                //     element.focus();
 
-                } else if (command_final_transcript.toLocaleLowerCase().includes("email") || command_final_transcript.toLocaleLowerCase().includes("click email")) {
-                    const element = document.getElementById("email");
-                    element.focus();
-                } else if (command_final_transcript.toLocaleLowerCase().includes("phone") || command_final_transcript.toLocaleLowerCase().includes("click phone")) {
-                    const element = document.getElementById("phone");
-                    element.focus();
-                } else if (command_final_transcript.toLocaleLowerCase().includes("subject") || command_final_transcript.toLocaleLowerCase().includes("click subject")) {
-                    const element = document.getElementById("subject");
-                    element.focus();
-                } else if (command_final_transcript.toLocaleLowerCase().includes("message") || command_final_transcript.toLocaleLowerCase().includes("click message")) {
-                    const element = document.getElementById("message");
-                    element.focus();
-                } else if (command_final_transcript.toLocaleLowerCase().includes("submit")) {
-                    const element = document.getElementById("submit-message");
-                    element.click();
-                }
+                // } else if (command_final_transcript.toLocaleLowerCase().includes("email") || command_final_transcript.toLocaleLowerCase().includes("click email")) {
+                //     const element = document.getElementById("email");
+                //     element.focus();
+                // } else if (command_final_transcript.toLocaleLowerCase().includes("phone") || command_final_transcript.toLocaleLowerCase().includes("click phone")) {
+                //     const element = document.getElementById("phone");
+                //     element.focus();
+                // } else if (command_final_transcript.toLocaleLowerCase().includes("subject") || command_final_transcript.toLocaleLowerCase().includes("click subject")) {
+                //     const element = document.getElementById("subject");
+                //     element.focus();
+                // } else if (command_final_transcript.toLocaleLowerCase().includes("message") || command_final_transcript.toLocaleLowerCase().includes("click message")) {
+                //     const element = document.getElementById("message");
+                //     element.focus();
+                // } else if (command_final_transcript.toLocaleLowerCase().includes("submit")) {
+                //     const element = document.getElementById("submit-message");
+                //     element.click();
+                // }
 
             } else {
                 command_interim_transcript += event.results[i][0].transcript;
