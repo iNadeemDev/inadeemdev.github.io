@@ -949,6 +949,8 @@ accessibility_majorLinks.addEventListener('click', () => {
                 link.remove();
             } else if (link.getElementsByTagName('ICON').length > 0) {
                 link.remove();
+            } else if (link.getElementsByTagName('SVG').length > 0) {
+                link.remove();
             } else {
                 link.removeAttribute('class');
                 link.removeAttribute('id');
