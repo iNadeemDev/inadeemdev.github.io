@@ -1926,17 +1926,19 @@ function voice_navigation() {
                 command_final_transcript = event.results[i][0].transcript;
                 // Opening / Clicking links
                 if (command_final_transcript.toLocaleLowerCase().includes("go to")) {
+                    console.log("go to::::"+command_final_transcript.toLocaleLowerCase())
                     var anchors = document.getElementsByTagName("A");
                     for(let i=0; i<anchors.length;i++){
-                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("go to ")){
+                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" go to ")){
                             anchors[i].click();
                             break;
                         }
                     }
                 } else if (command_final_transcript.toLocaleLowerCase().includes("open")) {
+                    console.log("open::::"+command_final_transcript.toLocaleLowerCase())
                     var anchors = document.getElementsByTagName("A");
                     for(let i=0; i<anchors.length;i++){
-                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("open ")){
+                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" open ")){
                             anchors[i].click();
                             break;
                         }
