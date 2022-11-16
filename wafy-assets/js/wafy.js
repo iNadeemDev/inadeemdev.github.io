@@ -1928,7 +1928,7 @@ function voice_navigation() {
                 if (command_final_transcript.toLocaleLowerCase().includes("go to")) {
                     const anchors = document.getElementsByTagName("A");
                     for(let i=0; i<anchors.length;i++){
-                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("go to ") || anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" go to ")){
+                        if(anchors[i].innerText.toLowerCase().to == command_final_transcript.toLocaleLowerCase().replace("go to ", "") || anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" go to ", "")){
                             anchors[i].click();
                             break;
                         }
@@ -1936,7 +1936,7 @@ function voice_navigation() {
                 } else if (command_final_transcript.toLocaleLowerCase().includes("open")) {
                     const anchors = document.getElementsByTagName("A");
                     for(let i=0; i<anchors.length;i++){
-                        if(anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace("open ") || anchors[i].innerText.toLocaleLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" open ")){
+                        if(anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace("open ", "") || anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" open ", "")){
                             anchors[i].click();
                             break;
                         }
