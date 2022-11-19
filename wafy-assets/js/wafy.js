@@ -2041,7 +2041,7 @@ function readAloud() {
             if (!targetElement.closest('#container-accessibility-widget')) {
                 targetElement.classList.add('highlightSpeakingText');
             }
-            var text = targetElement.innerHTML;
+            var text = targetElement.innerText;
             if (targetElement.tagName == 'IMG') {
                 text = "Image! " + targetElement.getAttribute('alt');
             }
@@ -2052,7 +2052,7 @@ function readAloud() {
                 text = "INPUT! " + (targetElement.getAttribute('placeholder') || targetElement.getAttribute('name'));
             }
             else if (targetElement.tagName == 'A') {
-                text = "Link! " + targetElement.innerHTML;
+                text = "Link! " + targetElement.innerText;
             }
             else if (targetElement.tagName === 'H1' || targetElement.tagName === 'H2' || targetElement.tagName === 'H3' || targetElement.tagName === 'H4' || targetElement.tagName === 'H5' || targetElement.tagName === 'H6') {
                 text = "Heading! " + targetElement.innerText;
