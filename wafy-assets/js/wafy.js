@@ -2055,7 +2055,7 @@ function readAloud() {
                 text = "Link! " + targetElement.innerHTML;
             }
             else if (targetElement.tagName === 'H1' || targetElement.tagName === 'H2' || targetElement.tagName === 'H3' || targetElement.tagName === 'H4' || targetElement.tagName === 'H5' || targetElement.tagName === 'H6') {
-                text = "Heading! " + targetElement.innerHTML;
+                text = "Heading! " + targetElement.innerText;
             }
             let utterance = new SpeechSynthesisUtterance(text);
 
