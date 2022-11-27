@@ -324,7 +324,7 @@ accessibility_textSize_card.addEventListener('click', () => {
         sizingSubOptionA[0].remove();
 
         // showing the icon
-        accessibility_sizeIcon.removeAttribute('hidden');
+        accessibility_sizeIcon.style.display = 'block';
 
         // hiding suboptions again
         accessibility_sizeSuboptions.setAttribute('hidden', 'hidden');
@@ -341,7 +341,7 @@ accessibility_textSize_card.addEventListener('click', () => {
         accessibility_textSizeBig.insertAdjacentHTML("afterend", "<i class=\"sizingActiveSuboptionBadge fa-solid fa-check\"></i>");
 
         // hiding the icon
-        accessibility_sizeIcon.setAttribute('hidden', 'hidden');
+        accessibility_sizeIcon.style.display = 'none';
 
         // displaying sizes suboptions
         accessibility_sizeSuboptions.removeAttribute('hidden');
@@ -449,7 +449,7 @@ accessibility_textSpacing.addEventListener('click', () => {
         }
 
         // showing the icon
-        accessibility_spacingIcon.removeAttribute('hidden');
+        accessibility_spacingIcon.style.display = 'block';
 
         // hiding the sub options
         accessibility_spacingSubOpt.setAttribute('hidden', 'hidden');
@@ -472,7 +472,7 @@ accessibility_textSpacing.addEventListener('click', () => {
         }
 
         // hiding the icon
-        accessibility_spacingIcon.setAttribute('hidden', 'hidden');
+        accessibility_spacingIcon.style.display = 'none';
 
         // showing the sub options
         accessibility_spacingSubOpt.removeAttribute('hidden');
@@ -556,7 +556,7 @@ accessibility_textAlign.addEventListener('click', () => {
 
 
         // showing the icon
-        accessibility_alignIcon.removeAttribute('hidden');
+        accessibility_alignIcon.style.display = 'block';
 
         // showing the sub options
         accessibility_alignSubOpt.setAttribute('hidden', 'hidden');
@@ -573,7 +573,7 @@ accessibility_textAlign.addEventListener('click', () => {
         document.body.style.setProperty('text-align', 'left', 'important');
 
         // hiding the icon
-        accessibility_alignIcon.setAttribute('hidden', 'hidden');
+        accessibility_alignIcon.style.display = 'none';
 
         // showing the sub options
         accessibility_alignSubOpt.removeAttribute('hidden');
@@ -748,7 +748,7 @@ accessibility_lineHeight.addEventListener('click', () => {
 
 
         // showing the icon
-        accessibility_lineHeightIcon.removeAttribute('hidden');
+        accessibility_lineHeightIcon.style.display = 'block';
 
         // showing the sub options
         accessibility_lineHeightSubOpt.setAttribute('hidden', 'hidden');
@@ -789,7 +789,7 @@ accessibility_lineHeight.addEventListener('click', () => {
 
 
         // hiding the icon
-        accessibility_lineHeightIcon.setAttribute('hidden', 'hidden');
+        accessibility_lineHeightIcon.style.display = 'none';
 
         // showing the sub options
         accessibility_lineHeightSubOpt.removeAttribute('hidden');
@@ -838,7 +838,7 @@ accessibility_cursor.addEventListener('click', () => {
         accessibility_cursor.classList.remove('accessibilityActiveOption');
 
         // showing the icon
-        accessibility_cursorIcon.removeAttribute('hidden');
+        accessibility_cursorIcon.style.display = 'block';
         // hiding the sub options
         accessibility_cursorSubOpt.setAttribute('hidden', 'hidden');
 
@@ -861,7 +861,7 @@ accessibility_cursor.addEventListener('click', () => {
         accessibility_cursor.classList.remove('accessibilityActiveOption');
 
         // showing the icon
-        accessibility_cursorIcon.removeAttribute('hidden');
+        accessibility_cursorIcon.style.display = 'block';
         // hiding the sub options
         accessibility_cursorSubOpt.setAttribute('hidden', 'hidden');
 
@@ -882,7 +882,7 @@ accessibility_cursor.addEventListener('click', () => {
     } else if (accessibility_cursor.matches('.accessibility-card')) {
 
         // hiding the icon
-        accessibility_cursorIcon.setAttribute('hidden', 'hidden');
+        accessibility_cursorIcon.style.display = 'none';
         // showing the sub options
         accessibility_cursorSubOpt.removeAttribute('hidden');
 
@@ -1227,7 +1227,7 @@ accessibility_Contrast.addEventListener('click', () => {
 
 
         // showing the icon
-        accessibility_contrastIcon.removeAttribute('hidden');
+        accessibility_contrastIcon.style.display = 'block';
 
         // displaying sizes suboptions
         accessibility_contrastSubOpt.setAttribute('hidden', 'hidden');
@@ -1244,7 +1244,7 @@ accessibility_Contrast.addEventListener('click', () => {
         document.body.style.setProperty('filter', 'contrast(0.5)', 'important');
 
         // hiding the icon
-        accessibility_contrastIcon.setAttribute('hidden', 'hidden');
+        accessibility_contrastIcon.style.display = 'none';
 
         // displaying sizes suboptions
         accessibility_contrastSubOpt.removeAttribute('hidden');
@@ -1309,7 +1309,7 @@ accessibility_Brightness.addEventListener('click', () => {
 
 
         // showing the icon
-        accessibility_brightnessIcon.removeAttribute('hidden');
+        accessibility_brightnessIcon.style.display = 'block';
 
         // displaying  suboptions
         accessibility_brightnessSubOpt.setAttribute('hidden', 'hidden');
@@ -1327,7 +1327,7 @@ accessibility_Brightness.addEventListener('click', () => {
 
 
         // hiding the icon
-        accessibility_brightnessIcon.setAttribute('hidden', 'hidden');
+        accessibility_brightnessIcon.style.display = 'none';
 
         // displaying sizes suboptions
         accessibility_brightnessSubOpt.removeAttribute('hidden');
@@ -1391,7 +1391,7 @@ accessibility_Saturation.addEventListener('click', () => {
 
 
         // showing the icon
-        accessibility_saturationIcon.removeAttribute('hidden');
+        accessibility_saturationIcon.style.display = 'block';
 
         // displaying  suboptions
         accessibility_saturatSubOpt.setAttribute('hidden', 'hidden');
@@ -1409,7 +1409,7 @@ accessibility_Saturation.addEventListener('click', () => {
 
 
         // hiding the icon
-        accessibility_saturationIcon.setAttribute('hidden', 'hidden');
+        accessibility_saturationIcon.style.display = 'none';
 
         // displaying sizes suboptions
         accessibility_saturatSubOpt.removeAttribute('hidden');
@@ -1622,7 +1622,7 @@ accessibility_bgColor.addEventListener("click", () => {
         accessibility_bgColor.classList.remove("accessibilityActiveOption");
 
         // showing the icon
-        accessibility_bgColorIcon.removeAttribute("hidden");
+        accessibility_bgColorIcon.style.display = 'block';
 
         // showing the sub options
         accessibility_bgColorSubOpt.setAttribute("hidden", "hidden");
@@ -1635,7 +1635,7 @@ accessibility_bgColor.addEventListener("click", () => {
         // showing the sub options
         accessibility_bgColorSubOpt.removeAttribute("hidden");
         // hiding the icon
-        accessibility_bgColorIcon.setAttribute("hidden", "hidden");
+        accessibility_bgColorIcon.style.display = 'none';
 
 
         accessibility_bgColor1.insertAdjacentHTML(
@@ -1802,7 +1802,7 @@ accessibility_textColor.addEventListener("click", () => {
         accessibility_textColor.classList.remove("accessibilityActiveOption");
 
         // showing the icon
-        accessibility_textColorIcon.removeAttribute("hidden");
+        accessibility_textColorIcon.style.display = 'block';
 
         // showing the sub options
         accessibility_textColorSubOpt.setAttribute("hidden", "hidden");
@@ -1815,7 +1815,7 @@ accessibility_textColor.addEventListener("click", () => {
         // showing the sub options
         accessibility_textColorSubOpt.removeAttribute("hidden");
         // hiding the icon
-        accessibility_textColorIcon.setAttribute("hidden", "hidden");
+        accessibility_textColorIcon.style.display = 'none';
 
         // inserting active subOption badge
         accessibility_textColor1.insertAdjacentHTML(
