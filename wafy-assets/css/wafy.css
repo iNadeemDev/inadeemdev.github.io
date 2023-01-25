@@ -253,8 +253,10 @@
     text-align: center;
     padding: 4px;
     font-size: 20px;
-    background-color: yellow;
+    background-color: rgb(33, 129, 232);
     margin-bottom: 5px;
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Major Links CSS Ends */
@@ -345,7 +347,7 @@
     transform: translate(-16px, -13px) !important;
     background-color: #ffbf00 !important;
     border-radius: 50% !important;
-    padding: 3px !important;
+    padding: 1px !important;
     border: none !important;
     line-height: normal !important;
 }

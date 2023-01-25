@@ -6,7 +6,7 @@ var wafy_fontawesome = document.createElement('link');
 
 // set the attributes for link element
 wafy_styles.rel = 'stylesheet';
-wafy_styles.href = 'https://nadeemdev.com/wafy-assets/css/wafy.css';
+wafy_styles.href = '/wafy-assets/css/wafy.css';
 
 wafy_fontawesome.rel = 'stylesheet';
 wafy_fontawesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
