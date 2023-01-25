@@ -57,6 +57,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #000;
+}
+
+#heading-accessibility-widget {
+    font-size: 18px !important;
 }
 
 #accessibility-widget-close {
