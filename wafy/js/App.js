@@ -479,7 +479,7 @@ function WafyLoadWidget() {
         wafy_widget_wrapper.classList.add('wafy-widget-hide')
     })
     // close widget if user clicks outside the widget
-    document.addEventListener('click', (event) => {
+    document.documentElement.addEventListener('click', (event) => {
         if (!event.target.closest('.wafy-app') && window.getComputedStyle(event.target).getPropertyValue('opacity') == '1') {
             if (wafy_widget_wrapper.classList.contains('wafy-widget-show')) {
                 wafy_widget_wrapper.classList.remove('wafy-widget-show')
@@ -1005,7 +1005,7 @@ function WafyLoadWidget() {
                 wafy_reader.classList.add('wafy-active-feature')
 
                 // activating screen reader
-                document.addEventListener('click', Wafy_SpeechSynth)
+                document.documentElement.addEventListener('click', Wafy_SpeechSynth)
 
             }
             else {
@@ -1041,7 +1041,7 @@ function WafyLoadWidget() {
 
             if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
                 // Say Greetings to the user in voice if screen reader is enabled
-                let utterance = new SpeechSynthesisUtterance("Greatings! You can talk to me now.");
+                let utterance = new SpeechSynthesisUtterance("Greatings! How may I assist you?.");
                 speechSynthesis.speak(utterance);
 
                 recognition.continuous = true;
@@ -1074,7 +1074,7 @@ function WafyLoadWidget() {
                             command_final_transcript = event.results[i][0].transcript;
                             // Opening / Clicking links
                             if (command_final_transcript.toLocaleLowerCase().includes("go to")) {
-                                const anchors = document.getElementsByTagName("A");
+                                const anchors = document.querySelectorAll("A, BUTTON");
                                 for (let i = 0; i < anchors.length; i++) {
                                     if (anchors[i].innerText.toLowerCase().to == command_final_transcript.toLocaleLowerCase().replace("go to ", "") || anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" go to ", "")) {
                                         anchors[i].click();
@@ -1082,7 +1082,7 @@ function WafyLoadWidget() {
                                     }
                                 }
                             } else if (command_final_transcript.toLocaleLowerCase().includes("open")) {
-                                const anchors = document.getElementsByTagName("A");
+                                const anchors = document.querySelectorAll("A, BUTTON");
                                 for (let i = 0; i < anchors.length; i++) {
                                     if (anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace("open ", "") || anchors[i].innerText.toLowerCase() == command_final_transcript.toLocaleLowerCase().replace(" open ", "")) {
                                         anchors[i].click();
@@ -1105,6 +1105,9 @@ function WafyLoadWidget() {
                             } else if (command_final_transcript.toLocaleLowerCase().includes("go to next page") || command_final_transcript.toLocaleLowerCase().includes("open next page")) {
                                 console.log("go forward to the next page.")
                                 history.forward();
+                            } else if (command_final_transcript.toLocaleLowerCase().includes("how are you")) {
+                                let utterance = new SpeechSynthesisUtterance("Hi, I am feeling great! How may I assist you?");
+                                speechSynthesis.speak(utterance);
                             }
 
                             // Accessibility Widget recognition script starts
@@ -1122,6 +1125,10 @@ function WafyLoadWidget() {
                             // Accessibility Widget recognition script ends
                             else if (command_final_transcript.toLocaleLowerCase().includes("stop listen") || command_final_transcript.toLocaleLowerCase().includes("stop listening")) {
                                 recognition.stop();
+
+                            } else {
+                                let utterance = new SpeechSynthesisUtterance("I am sorry I didn't got it this time.");
+                                speechSynthesis.speak(utterance);
                             }
 
                             //Interacting with the elements
@@ -1939,7 +1946,7 @@ function WafyLoadWidget() {
             focusableElements = {}
         }
     });
-    document.addEventListener('keydown', event => {
+    document.documentElement.addEventListener('keydown', event => {
 
         // shortcut open accessibility menuy
         if (event.altKey && (event.key === "w" || event.key === "W")) {
@@ -1996,7 +2003,7 @@ function WafyLoadWidget() {
             wafy_readingMask.appendChild(mask);
 
             // Listen for mousemove events
-            document.addEventListener('mousemove', function (e) {
+            document.documentElement.addEventListener('mousemove', function (e) {
                 // Calculate the dimensions of the mask
                 const maskWidth = window.innerWidth;
                 const maskHeight = 110;
@@ -2014,7 +2021,7 @@ function WafyLoadWidget() {
             });
 
             // Listen for mouseleave events to hide the reading mask
-            document.addEventListener('mouseleave', function () {
+            document.documentElement.addEventListener('mouseleave', function () {
                 wafy_readingMask.classList.remove('active');
             });
         }
@@ -2044,7 +2051,7 @@ function WafyLoadWidget() {
 
             const readingGuide = document.getElementById("wafy-reading-guide-line");
 
-            document.addEventListener("mousemove", (e) => {
+            document.documentElement.addEventListener("mousemove", (e) => {
                 const y = e.clientY;
                 const x = e.clientX;
                 readingGuide.style.top = `${y - 7}px`;
